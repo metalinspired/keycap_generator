@@ -9,7 +9,7 @@ I used OpenSCAD nightly with [Manifold](https://github.com/elalish/manifold) sup
 ### Keycap
 
 #### keycap_height
-The height ot the keycap. Actual height is affected by [top_roundness](#top_roundness) and/or [top_angle](#top_angle).
+The height of the keycap. Actual height is affected by [top_roundness](#top_roundness) and/or [top_angle](#top_angle).
 
 #### top_size
 Size of the upper part of the keycap.
@@ -24,11 +24,11 @@ Only used if [top_roundness](#top_roundness) is negative.
 It scales up hidden model used to crate the indentation so that you don't have sharp edges on the top.
 
 #### top_corner_radius
-Amount of keycap "roundnes" for the top part.
+Amount of keycap "roundness" for the top part.
 Smaller the value gives more roundness.
 
 #### top_thickness
-Tickness of upper wall of the keycap.
+Thickness of upper wall of the keycap.
 
 #### top_angle
 Angle ot the upper part of the keycap.
@@ -37,7 +37,7 @@ Angle ot the upper part of the keycap.
 Size of the bottom part of the keycap.
 
 #### bottom_corner_radius
-Amount of keycap "roundnes" for the bottom part.
+Amount of keycap "roundness" for the bottom part.
 Smaller the value gives more roundness.
 
 #### wall_thickness
@@ -87,7 +87,7 @@ How much will start of the stem shaft will be offset from the keycap bottom.
 Radius of the stem shaft.
 
 #### stem_cross_width
-Width of the stemm cross in stem shaft.
+Width of the stem cross in stem shaft.
 
 #### stem_gutter_width
 Width of cross gutters (didn't know how other to name this :P ) in stem cross.

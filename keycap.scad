@@ -1,5 +1,5 @@
 // Author: https://github.com/metalinspired/
-// Originla implementation: https://aileron.me/scad/keycap
+// Original implementation: https://aileron.me/scad/keycap
 
 /* [Keycap shell] */
 keycap_height = 7.5;                // .1
@@ -28,12 +28,12 @@ label_rotation = 0; // [0:1:360]
 // Stem offset from the bottom
 stem_offset = 2.0;       // .1
 stem_shaft_radius = 3.0; // .1
-// Width of the stemm cross
+// Width of the stem cross
 stem_cross_width = 4.1; // .1
 // width of the stem gutter
 stem_gutter_width = 1.2; // .1
 stem_count = 1;          // 1
-// How far individual stems are one from another whem more than one is used
+// How far individual stems are one from another when more than one is used
 stem_distance = 30.0; // .1
 
 function rsquircle(t, p) = 1 / pow(pow(cos(t), 2 * p) + pow(sin(t), 2 * p), 0.5 / p);
