@@ -14,38 +14,59 @@ The height of the keycap. Actual height is affected by [top_roundness](#top_roun
 #### top_size
 Size of the upper part of the keycap.
 
+![](./assets/top_size.gif) 
+
 #### top_roundness
 Leave at zero to generate a flat keycap.
 Values greater than zero will cause top part of the keycap to be rounded like space keycaps often are,
 and negative values will create an indentation in top part of the key.
 
+![](./assets/top_roundness_positive.gif) 
+![](./assets/top_roundness_negative.gif) 
+
 #### top_roundness_negative_scale
 Only used if [top_roundness](#top_roundness) is negative.
 It scales up hidden model used to crate the indentation so that you don't have sharp edges on the top.
+
+![](./assets/top_roundness_negative_scale.gif) 
 
 #### top_corner_radius
 Amount of keycap "roundness" for the top part.
 Smaller the value gives more roundness.
 
+![](./assets/top_corner_roundness.gif) 
+
 #### top_thickness
 Thickness of upper wall of the keycap.
+
+![](./assets/top_thickness.gif) 
 
 #### top_angle
 Angle ot the upper part of the keycap.
 
+![](./assets/top_angle.gif)
+
 #### bottom_size
 Size of the bottom part of the keycap.
+
+![](./assets/bottom_size.gif)
 
 #### bottom_corner_radius
 Amount of keycap "roundness" for the bottom part.
 Smaller the value gives more roundness.
 
+![](./assets/bottom_corner_roundness.gif)
+
 #### wall_thickness
 Thickness of the keycap walls, except the top one.
+
+![](./assets/wall_thickness.gif)
 
 #### extrusion
 Use this to create 1.25U, 1.5U, etc. keys.
 It "extrudes" the middle part of the keycap to make it larger.
+
+![](./assets/extrusion.gif)
 
 ### Label
 
