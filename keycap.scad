@@ -11,7 +11,7 @@ top_thickness = 2.0;                // .1
 top_angle = 0.0;                    // .1
 bottom_size = 18.0;                 // .1
 bottom_corner_roundness = 12;       // [1 : 15]
-walls_thickness = 2.0;              // .1
+wall_thickness = 2.0;               // .1
 extrusion = 0.0;                    // .1
 
 /* [Label] */
@@ -96,7 +96,7 @@ module keycap()
     {
         keycap_shell(top_roundness != 0);
         translate(v = [ 0, 0, -0.01 ]) resize(newsize = [
-            bottom_size + extrusion - (walls_thickness * 2), bottom_size - (walls_thickness * 2),
+            bottom_size + extrusion - (wall_thickness * 2), bottom_size - (wall_thickness * 2),
             keycap_height - top_thickness + 0.01
         ]) keycap_shell();
 
