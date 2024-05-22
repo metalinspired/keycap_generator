@@ -99,25 +99,37 @@ How many segments will be used to generate [label_content](#label_content).
 #### label_rotation
 Rotation of [label_content](#label_content).
 
-### Stem
+### Shaft
 
-#### stem_offset
-How much will start of the stem shaft will be offset from the keycap bottom.
+#### shaft_type 
+You can choose between round and square type.
 
-#### stem_shaft_radius
-Radius of the stem shaft.
+#### shaft_offset
+How much will start of the shaft will be offset from the keycap bottom.
 
-#### stem_cross_width
-Width of the stem cross in stem shaft.
+#### shaft_radius
+Radius of the shaft.
+Only used if [shaft_type](#shaft_type) is circle.
 
-#### stem_gutter_width
-Width of cross gutters (didn't know how other to name this :P ) in stem cross.
+#### shaft_width
+Width of the shaft.
+Only used if [shaft_type](#shaft_type) is square.
 
-#### stem_count
-I you are generating large(r) keycaps you might want to have more than one stem shaft.
+#### shaft_thickness
+Thickness of the shaft.
+Only used if [shaft_type](#shaft_type) is square.
 
-#### stem_distance
-How far will individual stem shafts (centers) be distanced from one another when [stem_count](#stem_count) is larger than one.
+#### shaft_cross_width
+Width of the stem cross in shaft.
+
+#### shaft_gutter_width
+Width of cross gutters (didn't know how other to name this :P ) in shaft cross.
+
+#### shaft_count
+I you are generating large(r) keycaps you might want to have more than one shaft.
+
+#### shaft_distance
+How far will individual shaft (centers) be distanced from one another when [shaft_count](#shaft_count) is larger than one.
 
 ## CLI usage
 

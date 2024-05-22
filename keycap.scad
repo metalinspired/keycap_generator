@@ -24,17 +24,20 @@ label_font = "Liberation Mono";
 label_font_segments = 64;
 label_rotation = 0; // [0:1:360]
 
-/* [Stem] */
-// Stem offset from the bottom
-stem_offset = 2.0;       // .1
-stem_shaft_radius = 3.0; // .1
-// Width of the stem cross
-stem_cross_width = 4.1; // .1
-// width of the stem gutter
-stem_gutter_width = 1.2; // .1
-stem_count = 1;          // 1
-// How far individual stems are one from another when more than one is used
-stem_distance = 30.0; // .1
+/* [Shaft] */
+shaft_type = "round"; // ["round", "square"]
+// Shaft offset from the bottom
+shaft_offset = 2.0;  // .1
+shaft_radius = 3.0;  // .1
+shaft_width = 6.6;   // .1
+shaft_thickness = 5; // .1
+// Width of the shaft cross
+shaft_cross_width = 4.1; // .1
+// width of the shaft gutter
+shaft_gutter_width = 1.2; // .1
+shaft_count = 1;          // 1
+// How far individual shafts are one from another when more than one is used
+shaft_distance = 30.0; // .1
 
 function rsquircle(t, p) = 1 / pow(pow(cos(t), 2 * p) + pow(sin(t), 2 * p), 0.5 / p);
 
@@ -119,27 +122,43 @@ module keycap()
                     text(label_content, size = label_font_size, halign = "center", valign = "center", font = label_font,
                          $fn = label_font_segments);
     }
-    // Stem shaft
-    stem_shaft = [ stem_cross_width, stem_gutter_width, keycap_height ];
-    stem_gutter_offset = [ -stem_cross_width / 2, -stem_gutter_width / 2, -0.01 ];
-    stem_count = stem_count >= 1 ? stem_count : 1;
-    stem_cutoff_block_size = [ stem_shaft_radius * 2 + 0.05, bottom_size ];
-    translate(v = [ -(stem_distance * (stem_count - 1)) / 2, 0, 0 ]) for (i = [1:stem_count])
+    // Shaft
+    shaft_count = shaft_count >= 1 ? shaft_count : 1;
+    shaft_shaft = [ shaft_cross_width, shaft_gutter_width, keycap_height ];
+    shaft_gutter_offset = [ -shaft_cross_width / 2, -shaft_gutter_width / 2, -0.01 ];
+    shaft_cutoff_block_size = [ (shaft_type == "square") ? shaft_width + 0.05 : shaft_radius * 2 + 0.05, bottom_size ];
+    translate(v = [ -(shaft_distance * (shaft_count - 1)) / 2, 0, 0 ]) for (i = [1:shaft_count])
     {
-        translate(v = [ stem_distance * (i - 1), 0, 0 ]) difference()
+        translate(v = [ shaft_distance * (i - 1), 0, 0 ]) difference()
         {
             $fn = 64;
-            cylinder(h = keycap_height + 3, r = stem_shaft_radius, center = false);
+            if (shaft_type == "square")
+            {
+                translate(v = [ -shaft_width / 2, -shaft_thickness / 2, 0 ])
+                    cube(size = [ shaft_width, shaft_thickness, keycap_height + 3 ], center = false);
+            }
+            else
+            {
+                cylinder(h = keycap_height + 3, r = shaft_radius, center = false);
+            }
             hull()
             {
                 translate(v = [ 0, 0, keycap_height + 4 ]) linear_extrude(height = 0.01)
-                    square(size = stem_cutoff_block_size, center = true);
+                    square(size = shaft_cutoff_block_size, center = true);
                 translate(v = [ 0, 0, keycap_height - top_thickness + 0.01 ]) rotate(a = top_angle, v = [ 1, 0, 0 ])
-                    linear_extrude(height = 0.01) square(size = stem_cutoff_block_size, center = true);
+                    linear_extrude(height = 0.01) square(size = shaft_cutoff_block_size, center = true);
             }
-            translate(v = stem_gutter_offset) cube(size = stem_shaft, center = false);
-            rotate(a = 90, v = [ 0, 0, 1 ]) translate(v = stem_gutter_offset) cube(size = stem_shaft, center = false);
-            translate(v = [ 0, 0, -0.01 ]) linear_extrude(height = stem_offset) circle(r = stem_shaft_radius + 0.05);
+            translate(v = shaft_gutter_offset) cube(size = shaft_shaft, center = false);
+            rotate(a = 90, v = [ 0, 0, 1 ]) translate(v = shaft_gutter_offset) cube(size = shaft_shaft, center = false);
+            translate(v = [ 0, 0, -0.01 ]) linear_extrude(height = shaft_offset) if (shaft_type == "square")
+            {
+                translate(v = [ -(shaft_width + 0.025) / 2, -(shaft_thickness + 0.025) / 2, 0 ])
+                    square(size = [ shaft_width + 0.05, shaft_thickness + 0.05 ]);
+            }
+            else
+            {
+                circle(r = shaft_radius + 0.05);
+            }
         }
     }
 }
