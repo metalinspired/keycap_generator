@@ -11,7 +11,7 @@ top_thickness = 2.0;                // .1
 top_angle = 0.0;                    // .1
 bottom_size = 18.0;                 // .1
 bottom_corner_roundness = 12;       // [1 : 15]
-wall_thickness = 2.0;               // .1
+wall_thickness = 0.8;               // .1
 extrusion = 0.0;                    // .1
 
 /* [Label] */
@@ -25,11 +25,11 @@ label_font_segments = 64;
 label_rotation = 0; // [0:1:360]
 
 /* [Shaft] */
-shaft_type = "round"; // ["round", "square"]
+shaft_type = "square"; // ["round", "square"]
 // Shaft offset from the bottom
 shaft_offset = 2.0;  // .1
 shaft_radius = 3.0;  // .1
-shaft_width = 6.6;   // .1
+shaft_width = 6.5;   // .1
 shaft_thickness = 5; // .1
 // Width of the shaft cross
 shaft_cross_width = 4.1; // .1
